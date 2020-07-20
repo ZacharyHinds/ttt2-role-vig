@@ -10,7 +10,7 @@ function ROLE:PreInitialize()
 	self.abbr = "vig" -- abbreviation
 	self.surviveBonus = 0 -- bonus multiplier for every survive while another player was killed
 	self.scoreKillsMultiplier = 1 -- multiplier for kill of player of another team
-	self.scoreTeamKillsMultiplier = -8 -- multiplier for teamkill
+	self.scoreTeamKillsMultiplier = -4 -- multiplier for teamkill
 	self.unknownTeam = true -- player don't know their teammates
 
 	self.defaultTeam = TEAM_INNOCENT -- the team name: roles with same team name are working together
@@ -37,10 +37,12 @@ end
 
 if SERVER then
   function ROLE:GiveRoleLoadout(ply, isRoleChange)
-    ply:GiveEquipmentWeapon("weapon_ttt2_vig_deagle")
+    if not isRoleChange then return end
+
+    ply:GiveArmor(GetConVar("ttt2_vig_armor"):GetInt())
   end
 
   function ROLE:RemoveRoleLoadout(ply, isRoleChange)
-    ply:RemoveEquipmentWeapon("weapon_ttt2_vig_deagle")
+    ply:RemoveArmor(GetConVar("ttt2_vig_armor"):GetInt())
   end
 end
