@@ -35,7 +35,7 @@ if SERVER then
         LANG.Msg(attacker, "ttt2_vig_enemy_killed", nil, MSG_STACK_ROLE)
       end
     else
-      ModifyMultiplier(attacker, math.Round(GetConVar("ttt2_vig_team_kill_penalty"):GetFloat(), 1))
+      ModifyMultiplier(attacker, math.Round(GetConVar("ttt2_vig_team_kill_penalty"):GetFloat(), 1) * -1)
       if attacker:HasTeam(TEAM_INNOCENT) and doMsg then
         LANG.Msg(attacker, "ttt2_vig_inno_killed", nil, MSG_STACK_ROLE)
       elseif doMsg then
@@ -83,6 +83,7 @@ if CLIENT then
     local client = LocalPlayer()
 
     if not IsValid(client) or not client:IsPlayer() or client:GetSubRole() ~= ROLE_VIGILANTE then return end
+    if not tData:GetEntity():IsPlayer() then return end
 
     tData:AddDescriptionLine(
       LANG.GetParamTranslation("ttt2_vig_multi", {multiplier = math.Round(client:GetNWFloat("ttt2_vig_multiplier", 1), 1)}),
