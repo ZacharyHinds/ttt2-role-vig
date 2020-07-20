@@ -24,17 +24,21 @@ if SERVER then
   hook.Add("PostPlayerDeath", "VigilanteKill", function(ply)
     if not IsValid(ply) then return end
     local attacker = ply.targetAttacker
-
+    if not IsValid(attacker) or not attacker:IsPlayer() then return end
     if attacker:GetSubRole() ~= ROLE_VIGILANTE then return end
+
+    local doMsg = GetConVar("ttt2_vig_msg"):GetBool()
 
     if not attacker:HasTeam(ply:GetTeam()) then
       ModifyMultiplier(attacker, math.Round(GetConVar("ttt2_vig_enemy_kill_bonus"):GetFloat(), 1))
-      LANG.Msg(attacker, "ttt2_vig_enemy_killed", nil, MSG_STACK_ROLE)
+      if doMsg then
+        LANG.Msg(attacker, "ttt2_vig_enemy_killed", nil, MSG_STACK_ROLE)
+      end
     else
       ModifyMultiplier(attacker, math.Round(GetConVar("ttt2_vig_team_kill_penalty"):GetFloat(), 1))
-      if attacker:HasTeam(TEAM_INNOCENT) then
+      if attacker:HasTeam(TEAM_INNOCENT) and doMsg then
         LANG.Msg(attacker, "ttt2_vig_inno_killed", nil, MSG_STACK_ROLE)
-      else
+      elseif doMsg then
         LANG.Msg(attacker, "ttt2_vig_teammate_killed", nil, MSG_STACK_ROLE)
       end
     end

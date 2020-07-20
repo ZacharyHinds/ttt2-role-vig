@@ -1,7 +1,7 @@
 CreateConVar("ttt2_vig_enemy_kill_bonus", 0.2, {FCVAR_NOTIFY, FCVAR_ARCHIVE})
-CreateConVar("ttt2_vig_team_kill_penalty", 0.0, {FCVAR_NOTIFY, FCVAR_ARCHIVE})
+CreateConVar("ttt2_vig_team_kill_penalty", 0.1, {FCVAR_NOTIFY, FCVAR_ARCHIVE})
 CreateConVar("ttt2_vig_max_multiplier", 2.0, {FCVAR_NOTIFY, FCVAR_ARCHIVE})
-CreateConVar("ttt2_vig_min_multiplier", 1.0, {FCVAR_NOTIFY, FCVAR_ARCHIVE})
+CreateConVar("ttt2_vig_min_multiplier", 0.5, {FCVAR_NOTIFY, FCVAR_ARCHIVE})
 CreateConVar("ttt2_vig_armor", 30, {FCVAR_NOTIFY, FCVAR_ARCHIVE})
 CreateConVar("ttt2_vig_msg", 1, {FCVAR_NOTIFY, FCVAR_ARCHIVE})
 
@@ -44,7 +44,7 @@ hook.Add("TTTUlxDynamicRCVars", "ttt2_ulx_dynamic_vigilante_convars", function(t
     min = 0,
     max = 1,
     decimal = 1,
-    desc = "ttt2_vig_team_kill_penalty (def. 0.0)"
+    desc = "ttt2_vig_team_kill_penalty (def. 0.1)"
   })
 
   table.insert(tbl[ROLE_VIGILANTE], {
@@ -62,6 +62,6 @@ hook.Add("TTTUlxDynamicRCVars", "ttt2_ulx_dynamic_vigilante_convars", function(t
     min = 0,
     max = 1,
     decimal = 1,
-    desc = "ttt2_vig_min_multiplier (def. 0.0)"
+    desc = "ttt2_vig_min_multiplier (def. 0.5)"
   })
 end)

@@ -27,7 +27,7 @@ function ROLE:PreInitialize()
     creditsTraitorDead = 0,
     random = 40,
 
-    shopFallback = SHOP_FALLBACK_TRAITOR
+    shopFallback = SHOP_FALLBACK_DETECTIVE
 	}
 end
 
