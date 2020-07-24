@@ -2,9 +2,9 @@ if SERVER then
   local function SetVigMultiplier(ply, multiplier)
     if not IsValid(ply) or not ply:IsPlayer() then return end
     if multiplier > GetConVar("ttt2_vig_max_multiplier"):GetFloat() then
-      ply:SetNWFloat("ttt2ttt2_vig_multiplier_vig", GetConVar("ttt2_vig_max_multiplier"):GetFloat())
+      ply:SetNWFloat("ttt2_vig_multiplier_vig", GetConVar("ttt2_vig_max_multiplier"):GetFloat())
     elseif multiplier < GetConVar("ttt2_vig_min_multiplier"):GetFloat() then
-      ply:SetNWFloat("ttt2ttt2_vig_multiplier_vig", GetConVar("ttt2_vig_min_multiplier"):GetFloat())
+      ply:SetNWFloat("ttt2_vig_multiplier_vig", GetConVar("ttt2_vig_min_multiplier"):GetFloat())
     else
       ply:SetNWFloat("ttt2_vig_multiplier", multiplier or 1)
     end
