@@ -21,9 +21,8 @@ if SERVER then
     SetVigMultiplier(ply, 1)
   end
 
-  hook.Add("PostPlayerDeath", "VigilanteKill", function(ply)
+  hook.Add("TTT2PostPlayerDeath", "VigilanteKill", function(ply, dmginfo, attacker)
     if not IsValid(ply) then return end
-    local attacker = ply.targetAttacker
     if not IsValid(attacker) or not attacker:IsPlayer() then return end
     if attacker:GetSubRole() ~= ROLE_VIGILANTE then return end
 
