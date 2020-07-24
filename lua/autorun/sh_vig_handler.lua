@@ -1,5 +1,5 @@
 if SERVER then
-  function SetMultiplier(ply, multiplier)
+  local function SetVigMultiplier(ply, multiplier)
     if not IsValid(ply) or not ply:IsPlayer() then return end
     if multiplier > GetConVar("ttt2_vig_max_multiplier"):GetFloat() then
       ply:SetNWFloat("ttt2ttt2_vig_multiplier_vig", GetConVar("ttt2_vig_max_multiplier"):GetFloat())
@@ -10,15 +10,15 @@ if SERVER then
     end
   end
 
-  function ModifyMultiplier(ply, modifier)
+  local function ModifyVigMultiplier(ply, modifier)
     if not IsValid(ply) or not ply:IsPlayer() then return end
 
-    SetMultiplier(ply, ply:GetNWFloat("ttt2_vig_multiplier", 1) + modifier)
+    SetVigMultiplier(ply, ply:GetNWFloat("ttt2_vig_multiplier", 1) + modifier)
   end
 
-  function ResetMultiplier(ply)
+  local function ResetVigMultiplier(ply)
     if not IsValid(ply) or not ply:IsPlayer() then return end
-    SetMultiplier(ply, 1)
+    SetVigMultiplier(ply, 1)
   end
 
   hook.Add("PostPlayerDeath", "VigilanteKill", function(ply)
@@ -30,12 +30,12 @@ if SERVER then
     local doMsg = GetConVar("ttt2_vig_msg"):GetBool()
 
     if not attacker:HasTeam(ply:GetTeam()) then
-      ModifyMultiplier(attacker, math.Round(GetConVar("ttt2_vig_enemy_kill_bonus"):GetFloat(), 1))
+      ModifyVigMultiplier(attacker, math.Round(GetConVar("ttt2_vig_enemy_kill_bonus"):GetFloat(), 1))
       if doMsg then
         LANG.Msg(attacker, "ttt2_vig_enemy_killed", nil, MSG_STACK_ROLE)
       end
     else
-      ModifyMultiplier(attacker, math.Round(GetConVar("ttt2_vig_team_kill_penalty"):GetFloat(), 1) * -1)
+      ModifyVigMultiplier(attacker, math.Round(GetConVar("ttt2_vig_team_kill_penalty"):GetFloat(), 1) * -1)
       if attacker:HasTeam(TEAM_INNOCENT) and doMsg then
         LANG.Msg(attacker, "ttt2_vig_inno_killed", nil, MSG_STACK_ROLE)
       elseif doMsg then
@@ -59,19 +59,19 @@ if SERVER then
 
   hook.Add("TTTEndRound", "ResetVigEnd", function()
     for _, ply in ipairs(player.GetAll()) do
-      ResetMultiplier(ply)
+      ResetVigMultiplier(ply)
     end
   end)
 
   hook.Add("TTTPrepRound", "ResetVigPrep", function()
     for _, ply in ipairs(player.GetAll()) do
-      ResetMultiplier(ply)
+      ResetVigMultiplier(ply)
     end
   end)
 
   hook.Add("TTTBeginRound", "ResetVigBegin", function()
     for _, ply in ipairs(player.GetAll()) do
-      ResetMultiplier(ply)
+      ResetVigMultiplier(ply)
     end
   end)
 end
