@@ -15,53 +15,53 @@ hook.Add("TTTUlxDynamicRCVars", "ttt2_ulx_dynamic_vigilante_convars", function(t
   tbl[ROLE_VIGILANTE] = tbl[ROLE_VIGILANTE] or {}
 
   table.insert(tbl[ROLE_VIGILANTE], {
-    cvar = "ttt2_vig_armor",
-    slider = true,
-    min = 0,
-    max = 100,
-    decimal = 0,
-    desc = "ttt2_vig_armor (def. 30)"
+      cvar = "ttt2_vig_armor",
+      slider = true,
+      min = 0,
+      max = 100,
+      decimal = 0,
+      desc = "ttt2_vig_armor (def. 30)"
   })
 
   table.insert(tbl[ROLE_VIGILANTE], {
-    cvar = "ttt2_vig_msg",
-    checkbox = true,
-    desc = "ttt2_vig_msg (def. 1)"
+      cvar = "ttt2_vig_msg",
+      checkbox = true,
+      desc = "ttt2_vig_msg (def. 1)"
   })
 
   table.insert(tbl[ROLE_VIGILANTE], {
-    cvar = "ttt2_vig_enemy_kill_bonus",
-    slider = true,
-    min = 0,
-    max = 1,
-    decimal = 1,
-    desc = "ttt2_vig_enemy_kill_bonus (def. 0.2)"
+      cvar = "ttt2_vig_enemy_kill_bonus",
+      slider = true,
+      min = 0,
+      max = 1,
+      decimal = 1,
+      desc = "ttt2_vig_enemy_kill_bonus (def. 0.2)"
   })
 
   table.insert(tbl[ROLE_VIGILANTE], {
-    cvar = "ttt2_vig_team_kill_penalty",
-    slider = true,
-    min = 0,
-    max = 1,
-    decimal = 1,
-    desc = "ttt2_vig_team_kill_penalty (def. 0.1)"
+      cvar = "ttt2_vig_team_kill_penalty",
+      slider = true,
+      min = 0,
+      max = 1,
+      decimal = 1,
+      desc = "ttt2_vig_team_kill_penalty (def. 0.1)"
   })
 
   table.insert(tbl[ROLE_VIGILANTE], {
-    cvar = "ttt2_vig_max_multiplier",
-    slider = true,
-    min = 1,
-    max = 3,
-    decimal = 1,
-    desc = "ttt2_vig_max_multiplier (def. 2.0)"
+      cvar = "ttt2_vig_max_multiplier",
+      slider = true,
+      min = 1,
+      max = 3,
+      decimal = 1,
+      desc = "ttt2_vig_max_multiplier (def. 2.0)"
   })
 
   table.insert(tbl[ROLE_VIGILANTE], {
-    cvar = "ttt2_vig_min_multiplier",
-    slider = true,
-    min = 0,
-    max = 1,
-    decimal = 1,
-    desc = "ttt2_vig_min_multiplier (def. 0.5)"
+      cvar = "ttt2_vig_min_multiplier",
+      slider = true,
+      min = 0,
+      max = 1,
+      decimal = 1,
+      desc = "ttt2_vig_min_multiplier (def. 0.5)"
   })
 end)
