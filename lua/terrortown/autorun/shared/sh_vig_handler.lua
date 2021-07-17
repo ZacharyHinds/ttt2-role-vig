@@ -28,7 +28,7 @@ if SERVER then
 
     local doMsg = GetConVar("ttt2_vig_msg"):GetBool()
 
-    if not attacker:GetTeam() == ply:GetTeam() then
+    if attacker:GetTeam() ~= ply:GetTeam() then
       ModifyVigMultiplier(attacker, math.Round(GetConVar("ttt2_vig_enemy_kill_bonus"):GetFloat(), 1))
       if doMsg then
         LANG.Msg(attacker, "ttt2_vig_enemy_killed", nil, MSG_STACK_ROLE)
