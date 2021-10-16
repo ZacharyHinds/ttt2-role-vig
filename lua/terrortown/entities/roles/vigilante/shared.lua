@@ -12,6 +12,8 @@ function ROLE:PreInitialize()
   self.scoreKillsMultiplier = 1 -- multiplier for kill of player of another team
   self.scoreTeamKillsMultiplier = -4 -- multiplier for teamkill
   self.unknownTeam = true -- player don't know their teammates
+  self.isPublicRole = true
+  self.isPolicingRole = true
 
   self.defaultTeam = TEAM_INNOCENT -- the team name: roles with same team name are working together
   self.defaultEquipment = SPECIAL_EQUIPMENT -- here you can set up your own default equipment
