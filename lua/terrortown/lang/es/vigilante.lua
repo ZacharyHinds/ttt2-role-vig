@@ -13,3 +13,12 @@ L["ttt2_vig_multi"] = "Multiplicador actual: x{multiplier}"
 L["ttt2_vig_enemy_killed"] = "¡Has asesinado a un maleante!"
 L["ttt2_vig_inno_killed"] = "¡Has asesinado a un inocente! ¡Qué mal!"
 L["ttt2_vig_teammate_killed"] = "¡Has asesinado a un compañero! ¡Qué mal!"
+
+
+-- --SETTING STRINGS
+-- L["label_ttt2_vig_armor"] = "Armor"
+-- L["label_ttt2_vig_msg"] = "Alert when kill changes damage multiplier"
+-- L["label_ttt2_vig_enemy_kill_bonus"] = "Multiplier increase per enemy kill"
+-- L["label_ttt2_vig_team_kill_penalty"] = "Multiplier decrease per teammate kill"
+-- L["label_ttt2_vig_max_multiplier"] = "Maximum multiplier"
+-- L["label_ttt2_vig_min_multiplier"] = "Minimum multiplier"
